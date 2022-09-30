@@ -56,7 +56,6 @@ def edit(request, pk):
         'pk': pk
     }
 
-
     return render(request, 'edit.html', context)
 
 def update(request, pk):
