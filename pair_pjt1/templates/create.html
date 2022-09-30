@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{% url 'pair:send' %}">
-    제목 : <input type="text" name="title">
-    내용 : <input type="text" name="content">
-    <input type="submit" name="" id="" value="작성하기">
 
-</form>
+<div class="container ">
+    <div class="d-flex justify-content-center align-items-center" style="height: 10rem;">
+        <h1 class="text-center">리뷰 글 작성</h1>
+    </div>
+    <hr>
+    <div class="container d-flex justify-content-center ">
 
+        <form action="{% url 'pair:send' %}">
+            <div class="input-group input-group-lg">
+                <span class="input-group-text" id="inputGroup-sizing-lg">제목</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" name="title">
+            </div>
+
+            <div>
+                내용 : <input type="text" name="content">
+            </div>
+            <input type="submit" name="" id="" value="작성하기">
+
+        </form>
+    </div>
+</div>
 {% endblock %}

@@ -4,7 +4,7 @@ from .models import Review
 
 # Create your views here.
 def index(request):
-    reviews =Review.objects.all()
+    reviews =Review.objects.all().order_by('id')
     
     context={
         'Review':  reviews,
