@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'pair:send' %}">
+    제목 : <input type="text" name="title">
+    내용 : <input type="text" name="contnet">
+    <input type="submit" name="" id="" value="작성하기">
+
+</form>
+
+{% endblock %}
