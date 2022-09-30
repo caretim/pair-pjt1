@@ -71,3 +71,12 @@ def update(request, pk):
     pk.save()
 
     return redirect('pair:detail', pk.pk)
+
+def search(request, text):
+    titles = Review.objects.all('title')
+    context = {
+        'titles': titles,
+        'text': text
+    }
+
+    return render(request, 'search.html',context)
