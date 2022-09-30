@@ -43,3 +43,8 @@ def detail(request,pk):
 
     return render(request,'detail.html',context)
 
+def delete(request, pk):
+    pk= Review.objects.get(id=pk)
+    pk.delete()
+
+    return redirect('pair:index')
