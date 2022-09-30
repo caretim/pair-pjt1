@@ -1,19 +1,27 @@
+from importlib.resources import contents
 from django.shortcuts import render, redirect
 from .models import Review
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    reviews =Review.objects.all()
 
-def create(requst):
+    context={
+        'Review':  reviews
+    }
 
-    return render(requst, "create.html")
+    return render(request,'index.html',context)
 
-def send(requst):
-    title = requst.GET.get('title')
-    content = requst.GET.get('content')
-    created_at = requst.GET.get('created_at')
-    update_ad = requst.GET.get('update_ad')
+def create(request):
+
+
+    return render(request, "create.html")
+
+def send(request):
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+    created_at = request.GET.get('created_at')
+    update_ad = request.GET.get('update_ad')
 
     Review.objects.create(
         title = title,
@@ -24,3 +32,14 @@ def send(requst):
     )
 
     return redirect('pair:index')
+
+
+def detail(request,pk):
+    pk= Review.objects.get(id=pk)
+
+    context={
+        'id':pk
+    }
+
+    return render(request,'detail.html',context)
+

@@ -3,4 +3,23 @@
 
 {% block content %}
 <a href="{% url 'pair:create' %}">리뷰 작성하기</a>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <th>리뷰 번호</th>
+        <th>리뷰 제목</th>
+        <th>작성 시간</th>
+
+    </thead>
+
+    <tbody>
+        <tr>
+            {%for k in Review%}
+            <td>{{ k.id }} </td>
+            <td><a href="{% url 'pair:detail' k.id %}">{{ k.title }}</a></td>
+            <td>{{ k.created_at }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
 {% endblock %}
