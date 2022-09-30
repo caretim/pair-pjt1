@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'pair:update' pk.pk %}">
+    제목 : <input type="text" name="title" value={{pk.title}}>
+    내용 : <input type="text" name="content" value={{pk.content}}>
+    <input type="submit" name="" id="" value="작성하기">
+
+</form>
+
+{% endblock %}

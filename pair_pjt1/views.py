@@ -48,3 +48,26 @@ def delete(request, pk):
     pk.delete()
 
     return redirect('pair:index')
+
+def edit(request, pk):
+    pk= Review.objects.get(id=pk)
+
+    context = {
+        'pk': pk
+    }
+
+
+    return render(request, 'edit.html', context)
+
+def update(request, pk):
+    pk= Review.objects.get(id=pk)
+
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+
+    pk.title = title
+    pk.content = content
+
+    pk.save()
+
+    return redirect('pair:detail', pk.pk)

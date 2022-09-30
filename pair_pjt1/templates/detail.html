@@ -4,7 +4,7 @@
 
 제목 :{{id.title}}
 내용 :{{id.content}}
-
+<a href="{% url 'pair:edit' id.pk %}">수정</a>
 <a href="{% url 'pair:delete' id.pk %}">삭제</a>
 
 {% endblock %}
