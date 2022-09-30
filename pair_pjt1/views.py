@@ -1,13 +1,14 @@
-from importlib.resources import contents
+from datetime import date
 from django.shortcuts import render, redirect
 from .models import Review
 
 # Create your views here.
 def index(request):
     reviews =Review.objects.all()
-
+    
     context={
-        'Review':  reviews
+        'Review':  reviews,
+
     }
 
     return render(request,'index.html',context)
