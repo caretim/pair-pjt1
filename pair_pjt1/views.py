@@ -48,3 +48,5 @@ def delete(request, pk):
     pk.delete()
 
     return redirect('pair:index')
+
+
